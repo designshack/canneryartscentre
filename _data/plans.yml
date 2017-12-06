@@ -1,0 +1,15 @@
+- title: Youth
+  price: '20'
+  description: Under 18
+- title: Individual
+  price: '50'
+  description: Over 18
+- title: Pensioner
+  price: '35'
+  description: Or concession
+- title: Family
+  price: '100'
+  description: 2 Adult + 1-3 Child
+- title: Organisation
+  price: '160'
+  description: Or business

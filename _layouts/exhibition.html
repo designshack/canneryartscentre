@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="wrap events">
+
+    <h1>{{page.title}}</h1>
+
+    <div class="event">
+      <div class="col four img" style="background-image: url('{{page.image_path}}');">
+      </div><!--
+      --><div class="col eight">
+        <div class="text">
+          <h2>
+            {{page.start_date | date: "%A, %-d %B"}} - {{page.end_date | date: "%A, %-d %B"}}
+          </h2>
+          <div class="content">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

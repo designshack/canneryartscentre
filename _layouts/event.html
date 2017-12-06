@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="wrap events">
+
+    <h1>{{page.title}}</h1>
+
+    <div class="event">
+      {% if page.poster_image_path %}
+      <div class="col four">
+        <img src="{{page.poster_image_path}}" alt="{{page.title}}" width="100%"/>
+      </div>
+
+      {% else %}
+      <div class="col four img" style="background-image: url('{{page.image_path}}');">
+      </div>{% endif %}<!--
+      --><div class="col eight">
+        <div class="text">
+
+          {% if page.snipcart == true %}
+
+          <h2>{{page.event_date | date: "%A, %-d %B"}}</h2>
+          <h3>
+            {% if page.event_end_time %}
+            {{page.event_start_time}} - {{page.event_end_time}}
+            {% else %}
+            From {{page.event_start_time}}
+            {% endif %}
+          </h3>
+          <p>
+            {{page.location}}<br>
+            {{page.address}}
+          </p>
+          <p>
+            Cannery Members ${{page.member_price}}<br>
+            Non Members ${{page.non_member_price}}
+          </p>
+          <button
+            class="snipcart-add-item"
+            data-item-id="{{page.product_id}}"
+            data-item-name="{{page.title}} Ticket"
+            data-item-price="{{page.non_member_price}}"
+            data-item-url="{{page.url}}"
+            data-item-description="{{page.event_date | date: "%A, %-d %B"}} {{page.event_start_time}}"
+            data-item-custom1-name="Member / Non Member"
+            data-item-custom1-options="Non Member|Member[-{{page.price_difference}}]"
+            data-item-custom1-value="Non Member">
+            Add to Cart
+          </button>
+
+          {% endif %}
+
+          {% if page.snipcart == false %}
+
+          <h2>{{page.event_date | date: "%A, %-d %B"}}</h2>
+          <h3>
+            {% if page.event_end_time %}
+            {{page.event_start_time}} - {{page.event_end_time}}
+            {% else %}
+            From {{page.event_start_time}}
+            {% endif %}
+          </h3>
+          <p>
+            {{page.location}}<br>
+            {{page.address}}
+          </p>
+
+            {% if page.free_event == true %}
+            <h3>FREE EVENT</h3>
+            {% endif %}
+
+            {% if page.door_entry == true %}
+            <p>Door Entry ${{page.price}}</p>
+            {% endif %}
+
+            {% if page.ticket_url %}
+            <p>Tickets ${{page.price}}</p>
+            <a href="{{page.ticket_url}}" target="_blank">
+              <div class="button">Buy Tickets</div>
+            </a>
+            {% endif %}
+
+          {% endif %}
+
+          <br><br>
+          {{content}}
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

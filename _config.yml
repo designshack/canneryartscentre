@@ -1,0 +1,20 @@
+collections:
+   posts:
+        output: true
+        permalink: /:title.html
+   workshops:
+        output: true
+        permalink: /:collection/:title.html
+   exhibitions:
+        output: true
+        permalink: /:collection/:title.html
+   events:
+        output: true
+        permalink: /:collection/:year/:slug.html
+   data:
+        output: true
+        permalink: /:collection/:title.html
+
+course_type:
+  - Artlab
+  - Kickarts

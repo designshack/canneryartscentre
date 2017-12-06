@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="wrap workshop-page">
+
+    <div>
+      <h1>{{page.title}}</h1>
+
+      <div class="col five first img" style="background-image: url('{{page.image_path}}');"></div><!--
+      --><div class="col seven text">
+
+        {% if page.one_day_only == false %}
+        <h2>{{page.course_day}} {{page.course_start_time}} - {{page.course_end_time}}</h2>
+        <p>
+          ​{{page.course_duration}}<br>
+          Starts: {{page.course_start_date | date: "%A, %-d %B"}}<br>
+          {{page.course_type}}<br>
+        </p>
+        {% endif %}
+
+        {% if page.one_day_only == true %}
+        <h2>{{page.course_start_date | date: "%A, %-d %B"}}</h2>
+        <p>
+          {{page.course_start_time}} - {{page.course_end_time}}<br>
+          {{page.course_type}}<br>
+        </p>
+        {% endif %}
+
+        <p>
+          ​Cannery member ${{page.member_price}}<br>
+          Non Member Price ${{page.non_member_price}} (INCLUDES FREE INDIVIDUAL MEMBERSHIP)
+        </p>
+
+        <button
+          class="snipcart-add-item"
+          data-item-id="{{page.course_id}}"
+          data-item-name="{{page.title}}"
+          data-item-price="{{page.non_member_price}}.00"
+          data-item-url="{{page.url}}"
+          data-item-description="{{page.course_start_date}} - {{page.course_duration}}"
+          data-item-custom1-name="Member / Non Member"
+          data-item-custom1-options="Non Member|Member[-{{page.price_difference}}]"
+          data-item-custom1-value="Non Member">
+          Add to Cart
+      </button>
+
+      <button  class="snipcart-checkout">
+          View cart
+      </button>
+
+      </div>
+    </div>
+
+    <div class="extra-content">
+      {{content}}
+    </div>
+
+  </div>
+</div>
