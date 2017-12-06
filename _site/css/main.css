@@ -1,0 +1,495 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.none {
+  display: none;
+}
+
+.lowercase {
+  text-transform: inherit;
+}
+
+.line-break {
+  border-top: 1px solid #27282d;
+  padding-bottom: 20px;
+}
+
+.wrap h1 {
+  text-align: center;
+  margin-bottom: 80px;
+  margin-top: 0;
+}
+
+.no-items {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.no-items h2 {
+  text-align: center;
+  font-style: italic;
+}
+
+.extra-content {
+  margin-top: 40px;
+}
+
+.snip-active {
+  z-index:100000000000;
+}
+
+.snipcart-summary {
+  display: inline;
+}
+
+.content img {
+  margin-top: 20px;
+}
+
+/* --- Header --- */
+
+header {
+ margin-top: 20px;
+ margin-bottom: 10px;
+}
+
+.logo img {
+  max-width: 180px;
+}
+
+/* --- Top Bar --- */
+
+.top-bar {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.top-bar a {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* --- Nav --- */
+
+nav {
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.menu ul {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  margin-bottom: inherit;
+  margin-left: inherit;
+}
+
+.menu .fa {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.dropdown {
+  cursor: pointer;
+	position: relative;
+  z-index: 999999999999999999;
+}
+
+.drop {
+  text-align: left;
+  display: none;
+  top: 0;
+  left: 0;
+	position: absolute;
+	background-color: #27282d;
+  color: white;
+	padding: 0;
+  margin-left: 18px;
+  margin-top: 25px;
+  z-index: 1;
+}
+
+.drop a:hover {
+  opacity: inherit;
+}
+
+.menu .dropdown:hover .drop {
+	display: block;
+}
+
+.dropdown .drop li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  color: white;
+  border: 2px solid #27282d;
+}
+
+.drop li:hover {
+  background-color: white;
+  color: #27282d;
+  font-weight: 700;
+}
+
+ul.login-menu {
+  margin-bottom: 20px;
+}
+
+.login-menu li {
+  font-size: 0.8rem;
+  color: #8b8378;
+  font-weight: 400;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.login-menu li a {
+  font-size: 0.8rem;
+  color: #8b8378;
+  font-weight: 400;
+}
+
+/* --- Hamburger --- */
+
+.mob-header {
+  display: none;
+  text-align: right;
+}
+
+.mob-header .logo {
+  display: inline;
+  padding-left: 30px;
+}
+
+.ham {
+  text-align: right;
+  float: right;
+  width: 100%;
+  margin-top: -26px;
+  margin-bottom: 40px;
+}
+
+.hamburger {
+  font-size: 1.2rem;
+  font-weight: inherit;
+  text-align: right;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-right: 30px;
+}
+
+.hamburger-menu {
+  display: none;
+  z-index:1000000;
+  background-color: white;
+  width: 100%;
+  text-align: right;
+  letter-spacing: 0.5px;
+  margin-top: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #000;
+}
+
+.hamburger-menu li {
+  display: block;
+  padding: 15px 30px;
+  margin-bottom: inherit;
+  margin-left: inherit;
+}
+
+.hamburger-menu li:hover {
+  display: block;
+  font-weight: 700;
+}
+
+li.dropdown1 ul,  li.dropdown2 ul {
+  margin-top: 20px;
+}
+
+.hamburger-menu ul {
+  padding: 0;
+  padding-bottom: 0;
+}
+
+.dropdown1, .dropdown2 {
+  cursor: pointer;
+  padding: 0;
+}
+
+.drop1, .drop2 {
+  display: none;
+  padding-top: 20px;
+  margin: 0;
+}
+
+.drop1 li, .drop2 li {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  transition: all 0.5s ease;
+}
+
+/* --- Footer--- */
+
+footer {
+  margin-top: 20px;
+}
+
+.foot {
+  margin-bottom: 20px;
+}
+
+.foot span {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.copyright p {
+  font-size: 0.9rem;
+}
+
+#mc_embed_signup input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.8px;
+  color: #27282d;
+  border: 2px solid #27282d;
+  height: 40px;
+  display: inline-block;
+  border-radius: 0;
+}
+
+#mc_embed_signup input.email {
+  margin: 0;
+  border-radius: 0;
+  width: 74%;
+  display: inline;
+}
+
+#mc_embed_signup form {
+  padding: 0;
+}
+
+#mc_embed_signup input[type="submit"] {
+  width: 22%;
+  height: 40px;
+  background-color: #27282d;
+  display: inline;
+  margin: 0;
+  border-radius: 0;
+}
+
+#mc_embed_signup div {
+  display: inline;
+}
+
+/* --- Index --- */
+
+.index-hero {
+  height: 800px;
+  background-image: url('/images/cac-hero-01.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* --- About --- */
+
+.about h2 {
+  margin-top: 20px;
+}
+
+.about ul {
+  margin-left: 20px;
+}
+
+/* --- Exhibitions & Events --- */
+
+.events h1 {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.events h6 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.event {
+  margin-bottom: 2%;
+}
+
+.event .img {
+  background-color: whitesmoke;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+.event .text {
+  padding: 20px;
+}
+
+/* --- Workshops --- */
+
+.workshop .logo {
+  width: 100%;
+}
+
+.workshop .big-text {
+  padding-left: 40px;
+}
+
+.workshop .big-text p {
+  font-size: 1.4rem;
+}
+
+.modules {
+  margin-top: 60px;
+}
+
+.mod .img {
+  background-color: whitesmoke;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+.mod .text {
+  text-align: center;
+  padding: 20px 20px 40px 20px;
+}
+
+/* --- Workshop Page --- */
+
+.workshop-page .img {
+  height: 350px;
+  background-color: whitesmoke;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.workshop-page .text {
+  padding: 20px;
+}
+
+.workshop-page button {
+  margin-bottom: 10px;
+}
+
+/* --- Membership --- */
+
+.subscriptions {
+  margin-top: 40px;
+}
+
+.subscriptions h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.col.sub {
+  width: 18.8%;
+  text-align: center;
+  background-color: whitesmoke;
+  padding: 20px;
+}
+
+/* --- Whats On--- */
+
+.whatson {
+  text-align: center;
+}
+
+.category {
+  margin-bottom: 40px;
+}
+
+.whatson h2 {
+  margin-bottom: 20px;
+}
+
+.whatson p {
+  margin-bottom: 20px;
+}
+
+/* --- Contact--- */
+
+.contact-details {
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form input, .contact-form textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.8px;
+  color: #27282d;
+  border: 2px solid #27282d;
+}
+
+.contact-form input[type="submit"] {
+  width: 100%;
+  font-weight: 700;
+  background-color: #27282d;
+  color: white;
+}
+
+input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #27282d;
+}
+
+textarea::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #27282d;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 0;
+  background-color: #27282d;
+  color: white;
+}
+
+.contact span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.contact-form input[type="submit"]:hover {
+  width: 100%;
+  font-weight: 700;
+  background-color: #27282d;
+  color: #27282d;
+}

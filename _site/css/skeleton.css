@@ -1,0 +1,313 @@
+/* --- CSS Reset --- */
+
+img {
+  max-width: 100%; /* this makes sure that no image is ever too big for its container */
+}
+
+/* --- Base Styles --- */
+
+html {
+  font-size: 0.8rem;
+}
+body {
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #27282d;
+}
+
+header, footer {
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+section {
+  padding: 2vh 5%;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+h1 { font-size: 3.0rem; font-family: "Revelstoke", 'Montserrat', sans-serif; letter-spacing: 0;}
+h2 { font-size: 1.5rem; line-height: 1.4; }
+h3 { font-size: 1.1rem; line-height: 1.2; }
+h4 { font-size: 2.0rem; line-height: 1.4; }
+h5 { font-size: 1.8rem; line-height: 1.5; }
+h6 { font-size: 3.0rem; font-family: "Revelstoke", 'Montserrat', sans-serif; letter-spacing: 0; }
+
+p {
+  margin-bottom: 0.8rem;
+}
+
+.italics {
+  font-style: italic;
+}
+
+@font-face {
+    font-family: "Revelstoke";
+    src: url('http://radiant-comb.cloudvent.net/Revelstoke-Regular.ttf') format("truetype");
+}
+
+/* --- Links --- */
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.5s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* --- Grid --- */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.wrap {
+  border-top: 2px solid #27282d;
+  border-bottom: 2px solid #27282d;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.col {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1%;
+}
+
+.col:first-child,
+.col.first {
+  margin-left: 0;
+} /* this gets rid of the margin-left on the first item in every row */
+
+.one.col       { width: 6.5%;  }
+.two.col       { width: 15%; }
+.three.col     { width: 23.5%; }
+.four.col      { width: 32%; }
+.five.col      { width: 40.5%; }
+.six.col       { width: 49%; }
+.seven.col     { width: 57.5%; }
+.eight.col     { width: 66%; }
+.nine.col      { width: 74.5%;  }
+.ten.col       { width: 83%; }
+.eleven.col    { width: 91.5%; }
+.twelve.col    { width: 100%; margin-left: 0;}
+
+.one-third.col               { width: 32%; }
+.two-thirds.col              { width: 66%; }
+
+.one-half.col                { width: 49%; }
+
+/* Offsets */
+.offset-by-one.col       { margin-left: 10.33%; }
+.offset-by-two.col       { margin-left: 18.66%; }
+.offset-by-three.col     { margin-left: 27.00%; }
+.offset-by-four.col      { margin-left: 35.33%; }
+.offset-by-five.col      { margin-left: 43.66%; }
+.offset-by-six.col       { margin-left: 52.00%; }
+.offset-by-seven.col     { margin-left: 60.33%; }
+.offset-by-eight.col     { margin-left: 68.66%; }
+.offset-by-nine.col      { margin-left: 77.00%; }
+.offset-by-ten.col       { margin-left: 85.33%; }
+.offset-by-eleven.col    { margin-left: 93.66%; }
+
+.offset-by-one-third.col  { margin-left: 35.00%; }
+.offset-by-two-thirds.col { margin-left: 68.66%; }
+
+.offset-by-one-half.col   { margin-left: 52.00%; }
+
+/* Responsive Grids */
+.tab-show,
+.mob-show {
+  /* we want these to appear only on tablet-sized or mobile-sized devices so we need to hide them on desktop */
+  display: none;
+}
+
+/* List Styles */
+
+ul li {
+  margin-left: 20px;
+}
+
+ul {
+  margin-bottom: .8rem;
+}
+
+/* Buttons */
+
+.button,
+button,
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 0;
+  letter-spacing: 0.1rem;
+  border: 2px solid #000; /* adjust color here */
+  cursor: pointer;
+  background-color: white;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus {
+  color: #fff;
+  background-color: black;
+  outline: 0;
+}
+
+.button-primary {
+  color: #fff;
+  background-color: black;
+}
+
+.button.button-primary:hover,
+.button-primary:focus {
+  color: #fff;
+  background-color: black;
+}
+
+a.solid:hover {
+  opacity: inherit;
+}
+
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input,
+textarea,
+select {
+  background-color: #fff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+}
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  font-size: .8em;
+  padding: 10px;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+textarea {
+  min-height: 4rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: rgba(252, 140, 153, 0.1);
+  outline: 0;
+}
+
+label {
+  cursor: pointer;
+}
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: .5rem;
+}
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e1e1e1;
+}
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.left       { text-align: left;}
+.center     { text-align: center;}
+.right      { text-align: right;}
+.justified  { text-align: justified;}
+
+
+.vert-center > * {
+  vertical-align: middle; /* add the vert-center class to a parent to vertically align it's direct children in the center */
+}
+
+/* this allows you to create a two-column grid where the image will expand to fill the height of the container based on the size of the text container. You need to add the .container class to the parent, the .box-img to the div which has a background image and the .box-text to the div that contains the text. You also need to add the class of right to whichever one is on the right  You will need to separately add a class or id to set the image itself */
+
+.box-img {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+}
+
+.box-text {
+  width: 50%;
+  display: inline-block;
+  padding: 2%;
+  text-align: left;
+}
+
+.box-img.right { right:0; }
+.box-text.right { margin-left: 50%;}
+
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  border-width: 0;
+  border-top: 1px solid #e1e1e1;
+}

@@ -1,0 +1,88 @@
+---
+layout: default
+title: Membership
+---
+
+<div class="container">
+  <div class="wrap about">
+
+    <h1>Membership</h1>
+    <h2>Why Become a Member?</h2>
+    <p>
+      Become a member of the Cannery Arts Centre community and receive a great range of benefits including invitations to event and exhibition openings, exclusive offers, monthly enewsletter and a 50% discount on our popular education workshops for all ages. We are a membership based, not- for- profit incorporated association, thriving on community involvement and participation, bringing the arts to the community and inviting local, established and emerging artists to participate and contribute to its programs and exhibitions. As well as individuals, we encourage businesses, schools and organisations to become members. The Cannery Arts Centre pride ourselves in supporting our vibrant arts community and our membership is the foundation of all that we do.
+    </p>
+
+    <h2>Benefits</h2>
+    <ul>
+      <li>Monthly Cannery member enewsletter</li>
+      <li>Exclusive invites to exhibition openings, artist talks & Cannery events</li>
+      <li>Opportunities to meet new people and try new things</li>
+      <li>Advanced notice of workshops and a 50% discount on workshop fees</li>
+      <li>Access to hire of Gallery, meeting room and studio spaces​</li>
+    </ul>
+
+    <h2>Already a member?</h2>
+    <p>Log in now to view or edit your account details.</p>
+
+    <button class="snipcart-user-profile">
+      <span class="snipcart-user-email">Login</span>
+    </button>
+
+    <button class="snipcart-user-logout">
+      Logout
+    </button>
+
+    <div class="subscriptions">
+
+      {% for plan in site.data.plans %}
+
+      <div class="col sub">
+        <h3>{{plan.title}}</h3>
+        <p>{{plan.description}}</p>
+        <h6>${{plan.price}}</h6>
+        <p>YEARLY</p>
+        <button class="snipcart-add-item"
+         data-item-name="{{plan.title}}"
+         data-item-description="1 Year Membership"
+         data-item-id="{{plan.title}}"
+         data-item-url="/"
+         data-item-price="{{plan.price}}"
+         data-item-payment-interval="Year"
+         data-item-payment-interval-count="1"
+         data-item-custom1-name="Volunteer"
+         data-item-custom1-options="true|false"
+         data-item-custom2-name="Gallery Sit"
+         data-item-custom2-options="true|false"
+         data-item-custom3-name="Artist Database"
+         data-item-custom3-options="true|false"
+         data-item-custom4-name="Tutor"
+         data-item-custom4-options="true|false"
+         data-item-custom5-name="WWCC"
+         data-item-custom5-options="true|false"
+         data-item-custom6-name="RSA"
+         data-item-custom6-options="true|false"
+         data-item-custom2-name="DOB"
+         data-item-custom2-type="textarea">
+         Sign up
+        </button>
+      </div><!--
+      -->
+
+      <form action="/create_subscription.php" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_DxgLcVNiH0k9sTyJ7JRN3ZbQ"
+          data-image="/images/marketplace.png"
+          data-name="Emma's Farm CSA"
+          data-description="Subscription for 1 weekly box"
+          data-amount="2000"
+          data-label="Sign Me Up!">
+        </script>
+      </form>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>

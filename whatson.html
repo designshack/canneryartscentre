@@ -1,0 +1,142 @@
+---
+layout: default
+title: What's On
+---
+
+<div class="container">
+  <div class="wrap whatson">
+    <h1>What's on at the Cannery</h1>
+
+    <div class="category">
+      <h2>Exhibitions</h2>
+
+      {% assign future_counter = 0 %}
+      {% assign curDate = site.time | date: '%F' %}
+      {% assign curTimestamp = curDate | date: '%s' %}
+
+      {% for exhibition in site.exhibitions %}
+          {% assign postStartDate = exhibition.start_date | date: '%s' %}
+
+          {% if postStartDate >= curTimestamp %}
+              {% assign future_counter = future_counter | plus: 1 %}
+          {% endif %}
+      {% endfor %}
+
+      {% if future_counter == 0 %}
+
+      <p>There is no exhibitions at this time...</p>
+
+      {% else %}
+
+      {% assign event_counter = 0 %}
+    	{% for exhibition in site.exhibitions %}
+    	{% assign postStartDate = exhibition.end_date | date: '%s' %}
+    	{% if postStartDate >= curTimestamp and event_counter < 20 %}
+
+      <a href="{{exhibition.url}}">
+        <h3>{{exhibition.title}}</h3>
+      </a>
+
+      <p>{{exhibition.start_date | date: "%A, %-d %B"}} - {{exhibition.end_date | date: "%A, %-d %B"}}</p>
+
+      {% assign event_counter = event_counter | plus: 1 %}
+      {% endif %}
+
+      {% endfor %}
+      {% endif %}
+
+    </div>
+
+    <div class="category">
+      <h2>Events</h2>
+
+      {% assign future_counter = 0 %}
+      {% assign curDate = site.time | date: '%F' %}
+      {% assign curTimestamp = curDate | date: '%s' %}
+
+      {% for event in site.events %}
+          {% assign postStartDate = event.event_date | date: '%s' %}
+
+          {% if postStartDate >= curTimestamp %}
+              {% assign future_counter = future_counter | plus: 1 %}
+          {% endif %}
+      {% endfor %}
+
+      {% if future_counter == 0 %}
+
+      <p>There is no events at this time...</p>
+
+      {% else %}
+
+      {% assign event_counter = 0 %}
+    	{% for event in site.events %}
+    	{% assign postStartDate = event.event_date | date: '%s' %}
+    	{% if postStartDate >= curTimestamp and event_counter < 20 %}
+
+      <a href="{{event.url}}">
+        <h3>{{event.title}}</h3>
+      </a>
+
+      <p>{{event.event_date | date: "%A, %-d %B"}}</p>
+
+      {% assign event_counter = event_counter | plus: 1 %}
+      {% endif %}
+
+      {% endfor %}
+      {% endif %}
+
+    </div>
+
+    <div class="category">
+      <h2>Workshops</h2>
+
+      {% assign future_counter = 0 %}
+      {% assign curDate = site.time | date: '%F' %}
+      {% assign curTimestamp = curDate | date: '%s' %}
+
+      {% for workshop in site.workshops %}
+          {% assign postStartDate = workshop.course_start_date | date: '%s' %}
+
+          {% if postStartDate >= curTimestamp %}
+              {% assign future_counter = future_counter | plus: 1 %}
+          {% endif %}
+      {% endfor %}
+
+      {% if future_counter == 0 %}
+
+      <p>There is no workshops at this time...</p>
+
+      {% else %}
+
+      {% assign event_counter = 0 %}
+    	{% for workshop in site.workshops %}
+    	{% assign postStartDate = workshop.course_start_date | date: '%s' %}
+    	{% if postStartDate >= curTimestamp and event_counter < 20 %}
+
+      <a href="{{workshop.url}}">
+        <h3>{{workshop.title}}</h3>
+      </a>
+
+      {% if workshop.one_day_only == false %}
+
+      <p>{{workshop.course_start_date | date: "%A"}}s {{workshop.course_start_time}} - {{workshop.course_end_time}}<br>
+      Starts: {{workshop.course_start_date | date: "%A, %-d %B"}}</p>
+
+      {% endif %}
+
+      {% if workshop.one_day_only == true %}
+
+      <p>{{workshop.course_start_date | date: "%A, %-d %B"}}</p>
+
+      {% endif %}
+
+      {% assign event_counter = event_counter | plus: 1 %}
+      {% endif %}
+
+      {% endfor %}
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>

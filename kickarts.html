@@ -1,0 +1,77 @@
+---
+layout: default
+title: Kickarts
+---
+
+<div class="container">
+  <div class="wrap workshop">
+
+    <div class="col three first">
+      <img src="/images/kickarts-logo.png" alt="Kickarts Esperance"/>
+    </div><!--
+    --><div class="col nine big-text">
+    <h2>What do you need to bring?</h2>
+      <ul class="list">
+        <li>
+          Please send your child with a sunhat and sunscreen as we may take them outside for breaks. All breaks are supervised by the tutor or a member of CAC staff – children are never left unattended</li>
+        </li>
+        <li>
+          Please ensure your child has water, snack and/or lunch if a longer class goes over lunch
+        </li>
+        <li>
+          Your child should wear old clothes or bring an apron/art smock as some of the classes can get messy
+        </li>
+        <li>
+          You will need to drop off and pick up your child from the room where the class is being held. Check at reception for directions and please sign the class list in the room when you drop off and pick up your child. Children will not be permitted to leave the Cannery at the end of class without a parent/guardian
+        </li>
+        <li>
+          All tutors and CAC staff hold valid Working with Children Checks
+        </li>
+        <li>
+          All materials are included
+        </li>
+      </ul>
+    </div>
+
+    <div class="modules">
+
+      {% assign sorted-posts = site.workshops | where: "course_type","Kickarts" %}
+      {% for workshop in sorted-posts %}
+
+      <div class="col four mod">
+        <a href="{{workshop.url}}"><div class="img" style="background-image: url('{{workshop.image_path}}');"></div></a>
+        <div class="text">
+          <h2><a href="{{workshop.url}}">{{workshop.title}}</a></h2>
+          <p>
+            {% if workshop.one_day_only == false %}
+
+            {{workshop.course_start_date | date: "%A"}}s {{workshop.course_start_time}} - {{workshop.course_end_time}}<br>
+            {{workshop.course_duration}}<br>
+            Starts: {{workshop.course_start_date | date: "%A, %-d %B"}}<br>
+
+            {% endif %}
+
+            {% if workshop.one_day_only == true %}
+
+            {{workshop.course_start_date | date: "%A, %-d %B"}}<br>
+            {{workshop.course_start_time}} - {{workshop.course_end_time}}<br>
+            {{workshop.course_duration}}
+
+            {% endif %}
+          </p>
+        </div>
+      </div><!--
+      -->
+
+      {% else %}
+
+      <div class="no-items">
+        <h2>There is no workshops at this time...</h2>
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>

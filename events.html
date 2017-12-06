@@ -1,0 +1,183 @@
+---
+layout: default
+title: Events
+---
+
+<div class="container">
+  <div class="wrap events">
+
+    <h1>Events</h1>
+
+    {% assign future_counter = 0 %}
+    {% assign curDate = site.time | date: '%F' %}
+    {% assign curTimestamp = curDate | date: '%s' %}
+
+    {% for event in site.events %}
+        {% assign postStartDate = event.event_date | date: '%s' %}
+
+        {% if postStartDate >= curTimestamp %}
+            {% assign future_counter = future_counter | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if future_counter == 0 %}
+
+    <div class="no-items">
+      <h2>There is no events at this time...</h2>
+    </div>
+
+    {% else %}
+
+    {% assign event_counter = 0 %}
+  	{% for event in site.events %}
+  	   {% assign postStartDate = event.event_date | date: '%s' %}
+  	   {% if postStartDate >= curTimestamp and event_counter < 20 %}
+
+    <div class="event">
+
+      <a href="{{event.url}}">
+        <div class="col five img" style="background-image: url('{{event.image_path}}');">
+        </div>
+      </a><!--
+      --></a><div class="col seven">
+        <div class="text">
+
+          {% if event.snipcart == true %}
+
+          <h2><a href="{{event.url}}">{{event.title}}</a></h2>
+          <h3>{{event.event_date | date: "%A, %-d %B"}}</h3>
+          <p>
+            {% if event.event_end_time %}
+            {{event.event_start_time}} - {{event.event_end_time}}
+            {% else %}
+            From {{event.event_start_time}}
+            {% endif %}
+          </p>
+          <p>
+            {{event.location}}<br>
+            {{event.address}}
+          </p>
+          <p>
+            Cannery Members ${{event.member_price}}<br>
+            Non Members ${{event.non_member_price}}
+          </p>
+          <button
+            class="snipcart-add-item"
+            data-item-id="{{event.product_id}}"
+            data-item-name="{{event.title}} Ticket"
+            data-item-price="{{event.non_member_price}}"
+            data-item-url="{{event.url}}"
+            data-item-description="{{event.event_date | date: "%A, %-d %B"}} {{event.event_start_time}}"
+            data-item-custom1-name="Member / Non Member"
+            data-item-custom1-options="Non Member|Member[-{{event.price_difference}}]"
+            data-item-custom1-value="Non Member">
+            Add to Cart
+          </button>
+
+          {% endif %}
+
+          {% if event.snipcart == false %}
+
+          <h2><a href="{{event.url}}">{{event.title}}</a></h2>
+          <h3>{{event.event_date | date: "%A, %-d %B"}}</h3>
+          <p>
+            {% if event.event_end_time %}
+            {{event.event_start_time}} - {{event.event_end_time}}
+            {% else %}
+            From {{event.event_start_time}}
+            {% endif %}
+          </p>          <p>
+            {{event.location}}<br>
+            {{event.address}}
+          </p>
+
+            {% if event.free_event == true %}
+            <p>FREE EVENT</p>
+            {% endif %}
+
+            {% if event.door_entry == true %}
+            <p>Door Entry ${{event.price}}</p>
+            {% endif %}
+
+            {% if event.ticket_url %}
+            <p>Tickets ${{event.price}}</p>
+            <a href="{{event.ticket_url}}" target="_blank"><div class="button">Buy Tickets</div></a>
+            {% endif %}
+
+          {% endif %}
+
+          <a href="{{event.url}}"><div class="button">Learn More</div></a>
+        </div>
+      </div>
+
+    </div>
+
+    {% assign event_counter = event_counter | plus: 1 %}
+    {% endif %}
+
+    {% endfor %}
+    {% endif %}
+
+    <h6>Past Events</h6>
+
+    {% assign past_counter = 0 %}
+    {% assign pcurDate = site.time | date: '%F' %}
+    {% assign pcurTimestamp = pcurDate | date: '%s' %}
+
+    {% for event in site.events %}
+        {% assign ppostStartDate = event.event_date | date: '%s' %}
+
+        {% if ppostStartDate <= pcurTimestamp %}
+            {% assign past_counter = past_counter | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if past_counter == 0 %}
+
+    <div class="no-items">
+      <h2>There is no past events...</h2>
+    </div>
+
+    {% else %}
+
+    {% assign past_event_counter = 0 %}
+  	{% for event in site.events %}
+  	   {% assign ppostStartDate = event.event_date | date: '%s' %}
+  	   {% if ppostStartDate < pcurTimestamp and past_event_counter < 20 %}
+
+    <div class="event">
+
+      <a href="{{event.url}}">
+        <div class="col five img" style="background-image: url('{{event.image_path}}');">
+        </div>
+      </a><!--
+      --></a><div class="col seven">
+        <div class="text">
+
+          <h2><a href="{{event.url}}">{{event.title}}</a></h2>
+          <h3>{{event.event_date | date: "%A, %-d %B %Y"}}</h3>
+          <p>
+            {% if event.event_end_time %}
+            {{event.event_start_time}} - {{event.event_end_time}}
+            {% else %}
+            From {{event.event_start_time}}
+            {% endif %}
+          </p>
+          <p>
+            {{event.location}}<br>
+            {{event.address}}
+          </p>
+          <p>{{event.excerpt}}</p>
+        </div>
+      </div>
+
+    </div>
+
+    {% assign past_event_counter = past_event_counter | plus: 1 %}
+    {% endif %}
+
+    {% endfor %}
+    {% endif %}
+
+  </div>
+</div>

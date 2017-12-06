@@ -1,0 +1,116 @@
+---
+layout: default
+title: Exhibitions
+---
+
+<div class="container">
+  <div class="wrap events">
+
+    <h1>Exhibitions</h1>
+
+    {% assign future_counter = 0 %}
+    {% assign curDate = site.time | date: '%F' %}
+    {% assign curTimestamp = curDate | date: '%s' %}
+
+    {% for exhibition in site.exhibitions %}
+        {% assign postStartDate = exhibition.end_date | date: '%s' %}
+
+        {% if postStartDate >= curTimestamp %}
+            {% assign future_counter = future_counter | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if future_counter == 0 %}
+
+    <div class="no-items">
+      <h2>There is no exhibitions at this time...</h2>
+    </div>
+
+    {% else %}
+
+    {% assign event_counter = 0 %}
+  	{% for exhibition in site.exhibitions %}
+  	{% assign postStartDate = exhibition.end_date | date: '%s' %}
+  	{% if postStartDate >= curTimestamp and event_counter < 20 %}
+
+    <div class="event">
+      <a href="{{exhibition.url}}" class="solid">
+        <div class="col four img" style="background-image: url('{{exhibition.image_path}}');">
+        </div>
+      </a><!--
+      --><div class="col eight">
+        <div class="text">
+          <h2>{{exhibition.title}}</h2>
+          <h3>
+            {{exhibition.start_date | date: "%A, %-d %B"}} - {{exhibition.end_date | date: "%A, %-d %B"}}
+          </h3>
+          <p>
+            {{exhibition.excerpt}}
+          </p>
+
+          <a href="{{exhibition.url}}"><div class="button">Learn More</div></a>
+        </div>
+      </div>
+    </div>
+
+    {% assign event_counter = event_counter | plus: 1 %}
+    {% endif %}
+
+    {% endfor %}
+    {% endif %}
+
+    <h6>Past Exhibitions</h6>
+
+    {% assign past_counter = 0 %}
+    {% assign pcurDate = site.time | date: '%F' %}
+    {% assign pcurTimestamp = pcurDate | date: '%s' %}
+
+    {% for exhibition in site.exhibitions %}
+        {% assign ppostStartDate = exhibition.end_date | date: '%s' %}
+
+        {% if ppostStartDate <= pcurTimestamp %}
+            {% assign past_counter = past_counter | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if past_counter == 0 %}
+
+    <div class="no-items">
+      <h2>There is no past exhibitions...</h2>
+    </div>
+
+    {% else %}
+
+    {% assign past_event_counter = 0 %}
+  	{% for exhibition in site.exhibitions %}
+	  {% assign ppostStartDate = exhibition.end_date | date: '%s' %}
+	  {% if ppostStartDate < pcurTimestamp and past_event_counter < 20 %}
+
+    <div class="event">
+      <a href="{{exhibition.url}}" class="solid">
+        <div class="col four img" style="background-image: url('{{exhibition.image_path}}');">
+        </div>
+      </a><!--
+      --><div class="col eight">
+        <div class="text">
+          <h2>{{exhibition.title}}</h2>
+          <h3>
+            {{exhibition.start_date | date: "%A, %-d %B"}} - {{exhibition.end_date | date: "%A, %-d %B"}}
+          </h3>
+          <p>
+            {{exhibition.excerpt}}
+          </p>
+
+          <a href="{{exhibition.url}}"><div class="button">Learn More</div></a>
+        </div>
+      </div>
+    </div>
+
+    {% assign past_event_counter = past_event_counter | plus: 1 %}
+    {% endif %}
+
+    {% endfor %}
+    {% endif %}
+
+  </div>
+</div>

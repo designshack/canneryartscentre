@@ -1,0 +1,59 @@
+---
+layout: default
+title: Art Lab
+---
+
+<div class="container">
+  <div class="wrap workshop">
+
+    <div class="col three first">
+      <img src="/images/artlab-logo.png" alt="Art Lab Esperance" class="artlab"/>
+    </div><!--
+    --><div class="col nine big-text">
+      <p>
+        ​Creative workshops for curious minds. Art Lab is here! Why not enrol online and try something new? 6 week courses and casual drop in classes available. Follow the link and check out the creative opportunities on offer. Prices include all materials and all skill levels are welcome.
+      </p>
+    </div>
+
+    <div class="modules">
+
+      {% assign sorted-posts = site.workshops | where: "course_type","Artlab" %}
+      {% for workshop in sorted-posts %}
+
+      <div class="col four mod">
+        <a href="{{workshop.url}}"><div class="img" style="background-image: url('{{workshop.image_path}}');"></div></a>
+        <div class="text">
+          <h2><a href="{{workshop.url}}">{{workshop.title}}</a></h2>
+          <p>
+            {% if workshop.one_day_only == false %}
+
+            {{workshop.course_start_date | date: "%A"}}s {{workshop.course_start_time}} - {{workshop.course_end_time}}<br>
+            {{workshop.course_duration}}<br>
+            Starts: {{workshop.course_start_date | date: "%A, %-d %B"}}<br>
+
+            {% endif %}
+
+            {% if workshop.one_day_only == true %}
+
+            {{workshop.course_start_date | date: "%A, %-d %B"}}<br>
+            {{workshop.course_start_time}} - {{workshop.course_end_time}}<br>
+            {{workshop.course_duration}}
+
+            {% endif %}
+          </p>
+        </div>
+      </div><!--
+      -->
+
+      {% else %}
+
+      <div class="no-items">
+        <h2>There is no workshops at this time...</h2>
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>
